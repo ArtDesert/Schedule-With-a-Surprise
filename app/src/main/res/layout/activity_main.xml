@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnConfirmMain"
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_below="@id/btnGroupMain"
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="100sp"
+        android:text="@string/confirm"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250sp"
+        android:text="@string/who_are_you"
+        android:textAlignment="center"
+        android:textColor="@color/teal_700"
+        android:textSize="30sp" />
+
+    <RadioGroup
+        android:id="@+id/btnGroupMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="120sp"
+        android:layout_marginTop="50sp"
+        android:layout_marginRight="120sp">
+
+
+        <RadioButton
+            android:id="@+id/btn_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/student"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/btn_schoolboy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/schoolboy"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+</RelativeLayout>

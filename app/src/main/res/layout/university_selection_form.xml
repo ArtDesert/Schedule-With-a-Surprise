@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/textViewUSF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70sp"
+        android:text="@string/choose_university"
+        android:textAlignment="center"
+        android:textColor="@color/teal_700"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:id="@+id/spinnerUSF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewUSF"
+        android:layout_marginTop="50sp"
+        android:layout_marginLeft="37sp"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        />
+
+    <Button
+        android:id="@+id/btnConfirmUSF"
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:text="@string/confirm"
+        android:textSize="15sp"
+        android:layout_below="@id/spinnerUSF"
+        android:layout_marginTop="200sp"
+        android:layout_marginHorizontal="50sp"
+        />
+
+    <TextView
+        android:id="@+id/textViewError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180sp"
+        android:text="@string/university_not_found"
+        android:textAlignment="center"
+        android:textColor="@color/grey"
+        android:textSize="15sp"
+        android:layout_below="@id/btnConfirmUSF"
+        android:layout_marginHorizontal="50sp"
+        />
+
+    <Button
+        android:id="@+id/btnMoveToConstructorUSF"
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:text="@string/to_constructor"
+        android:textSize="15sp"
+        android:layout_below="@id/textViewError"
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginBottom="10sp"
+        />
+
+</RelativeLayout>

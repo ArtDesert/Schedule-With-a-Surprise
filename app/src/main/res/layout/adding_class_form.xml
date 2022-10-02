@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adding_class"
+        android:textColor="@color/teal_700"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        />
+
+    <EditText
+        android:id="@+id/classLabelASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewASF"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="-3dp"
+        android:autofillHints=""
+        android:backgroundTint="@color/purple_500"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:selectAllOnFocus="true"
+        android:text="@string/inputLabel" />
+
+    <EditText
+        android:id="@+id/teacherNameASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/classLabelASF"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="30sp"
+        android:backgroundTint="@color/purple_500"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/inputTeacherName"
+        android:autofillHints="123"
+        android:selectAllOnFocus="true"/>
+
+    <TextView
+        android:id="@+id/textViewClassTypeASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/teacherNameASF"
+        android:text="@string/selectClassType"
+        android:textColor="@color/black"
+        android:layout_marginTop="30sp"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20sp"
+        />
+
+    <RadioGroup
+        android:id="@+id/btnGroupASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewClassTypeASF"
+        android:layout_marginTop="10sp"
+        android:layout_marginHorizontal="30sp"
+        >
+
+        <RadioButton
+            android:id="@+id/rbLectureASF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lecture"
+            android:textColor="@color/teal_700"
+            android:textSize="16sp"/>
+
+        <RadioButton
+            android:id="@+id/rbPracticeASF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/practice"
+            android:textColor="@color/teal_700"
+            android:textSize="16sp"/>
+
+        <RadioButton
+            android:id="@+id/rbLabASF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/labClass"
+            android:textColor="@color/teal_700"
+            android:textSize="16sp"/>
+
+        <RadioButton
+            android:id="@+id/rbOtherASF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/other"
+            android:textColor="@color/teal_700"
+            android:textSize="16sp"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/inputDateASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnGroupASF"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="10sp"
+        android:backgroundTint="@color/purple_500"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:selectAllOnFocus="true"
+        android:text="@string/inputClassroom" />
+    <TextView
+        android:id="@+id/TextViewInputTimeASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputDateASF"
+        android:text="@string/inputTime"
+        android:textColor="@color/black"
+        android:layout_marginTop="30sp"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20sp"
+        />
+
+    <EditText
+        android:id="@+id/inputTimeASF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TextViewInputTimeASF"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="10sp"
+        android:backgroundTint="@color/purple_500"
+        android:ems="10"
+        android:inputType="datetime"
+        android:minHeight="48dp"
+        android:selectAllOnFocus="true"
+        android:text="@string/time" />
+
+    <Button
+        android:id="@+id/btnAddASF"
+        android:layout_width="match_parent"
+        android:layout_height="70sp"
+        android:layout_below="@id/inputTimeASF"
+        android:layout_marginHorizontal="50sp"
+        android:layout_marginTop="51dp"
+        android:text="@string/add"
+        android:textSize="15sp" />
+
+</RelativeLayout>

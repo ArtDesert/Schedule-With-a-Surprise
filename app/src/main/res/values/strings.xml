@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Schedule With a Surprise</string>
+    <string name="who_are_you">Кто вы?</string>
+    <string name="student">Студент</string>
+    <string name="schoolboy">Школьник</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="choose_university">Выберите Ваш вуз</string>
+    <string name="university_not_found">Если Вы не нашли свой вуз, попробуйте воспользоваться конструктором собственного расписания по кнопке ниже.</string>
+    <string name="to_constructor">Перейти к конструктору</string>
+    <string name="adding_class">Добавление занятия</string>
+    <string name="inputLabel">Введите название дисциплины</string>
+    <string name="inputTeacherName">Введите имя преподавателя</string>
+    <string name="selectClassType">Выберите тип занятия</string>
+    <string name="inputClassroom">Введите аудиторию</string>
+    <string name="inputTime">Введите время начала и конца занятия</string>
+    <string name="lecture">Лекция</string>
+    <string name="practice">Практическое занятие</string>
+    <string name="labClass">Лабораторное занятие</string>
+    <string name="other">Другое</string>
+    <string name="date">дд.мм.гггг</string>
+    <string name="time">чч:мм чч:мм</string>
+    <string name="add">Добавить</string>
+    <string name="select_schedule_type">Выберите тип расписания</string>
+    <string name="classic_type">Классический</string>
+    <string name="even_or_odd_type">Четная/нечетная недели</string>
+    <string name="classic_type_info">*Классический тип подразумевает один шаблон расписания, чередующийся каждую неделю, в отличие от типа "чет/нечет", который подразумевает два шаблона: четная и нечетная недели соответственно.  </string>
+    <string name="add_week_template">Добавление шаблона недели</string>
+    <string name="add_odd_week_template">Добавление шаблона нечетной недели</string>
+    <string name="add_even_week_template">Добавление шаблона четной недели</string>
+    <string name="mathAnalysis">Математический анализ\nСтаровойтов Виктор Николаевич\nМА\n9:00 - 10:35</string>
+    <string name="algebra">Высшая алгебра\nКолесников Павел Сергеевич\n4296\n10:50 - 12:25</string>
+    <string name="analysisGeom">Аналитическая геометрия\nАгапов Сергей Вадимович\n5211\n12:40 - 14:15</string>
+    <string name="yapisd">Языки программирования и структуры данных\nКуприянов Александр Викторович\n311\n14:30 - 16:05</string>
+    <string name="save">Сохранить</string>
+    <string name="next">Далее</string>
+    <string name="prev">Назад</string>
+    <string name="schedule">Расписание</string>
+
+    <string-array name="universities">
+        <item>Самарский университет</item>
+        <item>НГУ</item>
+        <item>МГУ</item>
+        <item>СПбГУ</item>
+        <item>МФТИ</item>
+    </string-array>
+</resources>
