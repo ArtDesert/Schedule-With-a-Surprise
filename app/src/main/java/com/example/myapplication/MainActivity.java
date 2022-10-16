@@ -2,7 +2,14 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,6 +43,8 @@ public class MainActivity extends AppCompatActivity {//implements AdapterView.On
     int day;
     int number;
     boolean week = false;
+    DBHelper dbHelper;
+    SQLiteDatabase database;
 
     String[][] Array = new String [6][8];
     String[][] Array2 = new String [6][8];
@@ -58,6 +67,70 @@ public class MainActivity extends AppCompatActivity {//implements AdapterView.On
         button_type.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                database = dbHelper.getWritableDatabase();
+                ContentValues contentValues = new ContentValues();
+                /*
+                database.execSQL("INSERT INTO TEACHERS(NAME) VALUES ('Куприянов')");
+                database.execSQL("INSERT INTO TEACHERS(NAME) VALUES ('Логанова')");
+                database.execSQL("INSERT INTO CABINETS(NAME) VALUES ('219-1')");
+                database.execSQL("INSERT INTO DAYS(NAME) VALUES ('Понедельник')");
+                database.execSQL("INSERT INTO SUBJECTS(NAME) VALUES ('Основы трансляции')");
+                database.execSQL("INSERT INTO TYPES_CLASS(NAME) VALUES ('Лекция')");
+                database.execSQL("INSERT INTO SCHEDULE (SUBJECT, TEACHER, DAY, CABINET, TIME, NOTE, TYPE_CLASS, EVEN)\n" +
+                        "VALUES (1, 2, 1, 1, '13:30', 'Лучшая каморка', 1, 1)");
+
+                 */
+                Cursor cursor =  database.query(DBHelper.TABLE_SCHEDULE_NAME, null,null,null,null,null,null);
+                if (cursor.moveToFirst())
+                {
+                    int subjectIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_SUBJECT);
+                    int teacherIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_TEACHER);
+                    int dayIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_DAY);
+                    int cabinetIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_CABINET);
+                    int timeIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_TIME);
+                    int noteIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_NOTE);
+                    int type_classIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_TYPE_CLASS);
+                    int evenIndex = cursor.getColumnIndex(DBHelper.KEY_SCHEDULE_EVEN);
+                    do
+                    {
+                        String str = "ID_SUBJECT =" + cursor.getInt(subjectIndex) +
+                                ", ID_TEACHER = " + cursor.getInt(teacherIndex) +
+                                ", ID_DAY = " + cursor.getInt(dayIndex) +
+                                ", ID_CABINET = " + cursor.getInt(cabinetIndex) +
+                                ", TIME = " + cursor.getString(timeIndex) +
+                                ", NOTE = " + cursor.getString(noteIndex) +
+                                ", ID_TYPE_CLASS = " + cursor.getInt(type_classIndex) +
+                                ", EVEN = " + cursor.getInt(evenIndex);
+                        Log.d("mLog", str);
+                    }
+                    while(cursor.moveToNext());
+                }
+                else
+                {
+                    Log.d("mLog","0 rows");
+                }
+                cursor.close();
+
+                Cursor c = database.rawQuery("SELECT SCHEDULE.ID as ID, SUBJECTS.NAME as SUBJECT, TEACHERS.NAME as TEACHER, TYPES_CLASS.NAME as TYPE_CLASS, CABINETS.NAME as CABINET, SCHEDULE.TIME as TIME, SCHEDULE.NOTE as NOTE, SCHEDULE.EVEN as EVEN\n" +
+                        "FROM SCHEDULE\n" +
+                        "INNER JOIN SUBJECTS ON SCHEDULE.SUBJECT = SUBJECTS.ID\n" +
+                        "INNER JOIN TEACHERS ON SCHEDULE.TEACHER = TEACHERS.ID\n" +
+                        "INNER JOIN DAYS ON SCHEDULE.DAY = DAYS.ID\n" +
+                        "INNER JOIN CABINETS ON SCHEDULE.CABINET = CABINETS.ID\n" +
+                        "INNER JOIN TYPES_CLASS ON SCHEDULE.TYPE_CLASS = TYPES_CLASS.ID", null);
+                c.moveToFirst();
+                //TODO Annotation
+                @SuppressLint("Range") String str = "ID =" + c.getInt(c.getColumnIndex("ID")) +
+                        ", SUBJECT = " + c.getString(c.getColumnIndex("SUBJECT")) +
+                        ", TEACHER = " + c.getString(c.getColumnIndex("TEACHER")) +
+                        ", TYPE_CLASS = " + c.getString(c.getColumnIndex("TYPE_CLASS")) +
+                        ", CABINET = " + c.getString(c.getColumnIndex("CABINET")) +
+                        ", TIME = " + c.getString(c.getColumnIndex("TIME")) +
+                        ", NOTE = " + c.getString(c.getColumnIndex("NOTE")) +
+                        ", EVEN = " + c.getString(c.getColumnIndex("EVEN"));
+                Log.d("mLog", str);
+                c.close();
+
                 if(RB2.isChecked()) { // Проверка что выбран RadioButton школьник
                     setContentView(R.layout.select_even_or_odd_param_form);
 
@@ -109,6 +182,8 @@ public class MainActivity extends AppCompatActivity {//implements AdapterView.On
                 }
             }
         });
+
+        dbHelper = new DBHelper(this);
 
 
         /*
@@ -351,6 +426,7 @@ public class MainActivity extends AppCompatActivity {//implements AdapterView.On
             else {classes[temp].setText(Array2[day][temp]);
             };
         }
+
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -400,6 +476,8 @@ public class MainActivity extends AppCompatActivity {//implements AdapterView.On
             clearAllClasses(classes);
         }
     }
+
+
 
     public void disableTextView()
     {
