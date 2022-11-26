@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="ПН"
-            android:background="@color/teal_200"
             android:textAlignment="center"
             android:textSize="20sp" />
 
@@ -159,7 +158,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnPrev"
             android:text="@string/prev"
-            android:textSize="17sp"
+            android:textSize="16sp"
             ></Button>
 
         <TextView
@@ -176,7 +175,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next"
-            android:textSize="17sp"></Button>
+            android:textSize="16sp"></Button>
 
     </LinearLayout>
 

@@ -28,6 +28,23 @@ public class DBHelper extends SQLiteOpenHelper
     public static final String KEY_SCHEDULE_EVEN = "EVEN";
     //endregion
 
+
+    //region Parsing
+    public static final String TABLE_PARSING_NAME = "PARSING";
+    public static final String KEY_PARSING_ID = "ID";
+    public static final String KEY_PARSING_NUMBER = "NUMBER";
+    public static final String KEY_PARSING_SUBJECT = "SUBJECT";
+    public static final String KEY_PARSING_TEACHER = "TEACHER";
+    public static final String KEY_PARSING_DAY = "DAY";
+    public static final String KEY_PARSING_DATE = "DATE";
+    public static final String KEY_PARSING_CABINET = "CABINET";
+    public static final String KEY_PARSING_TIME = "TIME";
+    public static final String KEY_PARSING_NOTE = "NOTE";
+    public static final String KEY_PARSING_TYPE_SUBJECT = "TYPE_SUBJECT";
+    public static final String KEY_PARSING_WEEK = "WEEK";
+    //endregion
+
+
     //region CABINETS
     public static final String TABLE_CABINETS_NAME = "CABINETS";
     public static final String KEY_CABINETS_ID = "ID";
@@ -81,6 +98,20 @@ public class DBHelper extends SQLiteOpenHelper
                 "(" + KEY_TYPES_CLASS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 KEY_TYPES_CLASS_NAME + "  VARCHAR(30) NOT NULL UNIQUE)");
 
+        db.execSQL("CREATE TABLE IF NOT EXISTS "+ TABLE_PARSING_NAME +
+                " (" + KEY_PARSING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                KEY_PARSING_NUMBER + " INTEGER NOT NULL," +
+                KEY_PARSING_SUBJECT + " VARCHAR(30) NOT NULl," +
+                KEY_PARSING_TEACHER + " VARCHAR(30) NOT NULL," +
+                KEY_PARSING_DAY + " INTEGER NOT NULL," +
+                KEY_PARSING_DATE + " VARCHAR(10) NOT NULL," +
+                KEY_PARSING_CABINET + " VARCHAR(15) NOT NULL," +
+                KEY_PARSING_TYPE_SUBJECT + " VARCHAR(12) NOT NULL," +
+                KEY_PARSING_TIME + " VARCHAR(12)," +
+                KEY_PARSING_NOTE + " TEXT," +
+                KEY_PARSING_WEEK + " INTEGER NOT NULL)" );
+
+
         db.execSQL("CREATE TABLE IF NOT EXISTS "+ TABLE_SCHEDULE_NAME +
                         " (" + KEY_SCHEDULE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         KEY_SCHEDULE_SUBJECT + " INTEGER NOT NULL," +
@@ -107,6 +138,7 @@ public class DBHelper extends SQLiteOpenHelper
         db.execSQL("drop table if exists " + TABLE_TEACHERS_NAME);
         db.execSQL("drop table if exists " + TABLE_TYPES_CLASS_NAME);
         db.execSQL("drop table if exists " + TABLE_SCHEDULE_NAME);
+        db.execSQL("drop table if exists " + TABLE_PARSING_NAME);
         onCreate(db);
     }
 }
